@@ -425,45 +425,61 @@
 
                 <!-- Contact Start -->
                 <section class="py-5 wow fadeInUp" data-wow-delay="0.1s" id="contact">
-                    <h1 class="title pb-3 mb-5">Contact Me</h1>
-                    
-                    <form method=POST action="mailto:chauhanyogesh1392002@gmail.com" enctype="text/plain">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="text" name="name" class="form-control border-0 bg-secondary" id="name"
-                                        placeholder="Your Name">
-                                    <label for="name">Your Name</label>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="email" class="form-control border-0 bg-secondary" name="email" id="email"
-                                        placeholder="Your Email">
-                                    <label for="email">Your Email</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <input type="text" name="subject" class="form-control border-0 bg-secondary" id="subject"
-                                        placeholder="Subject">
-                                    <label for="subject">Subject</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <textarea name="body" class="form-control border-0 bg-secondary"
-                                        placeholder="Leave a message here" id="message"
-                                        style="height: 200px"></textarea>
-                                    <label for="message">Message</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
-                            </div>
-                        </div>
-                    </form>
-                </section>
+    <h1 class="title pb-3 mb-5">Contact Me</h1>
+
+    <form method="POST" id="emailForm">
+        <div class="row g-3">
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="text" name="name" class="form-control border-0 bg-secondary" id="name"
+                        placeholder="Your Name">
+                    <label for="name">Your Name</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="email" class="form-control border-0 bg-secondary" name="email"
+                        id="email" placeholder="Your Email">
+                    <label for="email">Your Email</label>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-floating">
+                    <input type="text" name="subject" class="form-control border-0 bg-secondary"
+                        id="subject" placeholder="Subject">
+                    <label for="subject">Subject</label>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-floating">
+                    <textarea name="body" class="form-control border-0 bg-secondary"
+                        placeholder="Leave a message here" id="message"
+                        style="height: 200px"></textarea>
+                    <label for="message">Message</label>
+                </div>
+            </div>
+            <div class="col-12">
+                <button class="btn btn-primary w-100 py-3" id="sendMessageBtn" type="button">Send Message</button>
+            </div>
+        </div>
+    </form>
+</section>
+
+<script>
+    document.getElementById('sendMessageBtn').addEventListener('click', function () {
+        // Get form data
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const body = document.getElementById('message').value;
+
+        // Construct mailto link with form data
+        const mailtoLink = `mailto:yjc8844@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\nMessage: ${body}`)}`;
+
+        // Open mailto link in the same window
+        window.location.href = mailtoLink;
+    });
+</script>
                 <!-- Contact End -->
 
                 <!-- Footer Start -->
